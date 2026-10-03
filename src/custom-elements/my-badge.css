@@ -1,0 +1,42 @@
+/**
+ * An badge styled entirely with CSS.
+ * @a11y badge
+ */
+my-badge{
+  /** Inner spacing. */
+  --badge-padding: 4px;
+  /** Surface color. */
+  --badge-bg-color: lightgray;
+  /** Text and icon color. */
+  --badge-fg-color: black;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: var(--badge-padding);
+  background-color: var(--badge-bg-color);
+  color: var(--badge-fg-color);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1;
+
+  &[data-variant="danger"] {
+    --badge-bg-color: red;
+    --badge-fg-color: white;
+  }
+
+  &[data-variant="success"] {
+    --badge-bg-color: seagreen;
+    --badge-fg-color: white;
+  }
+
+  /** Positions the start icon before the badge text */
+  [slot="icon-start"] { 
+    order: -1; 
+    border: 2px solid;
+    padding: 0;
+  }
+  /** Positions the end icon after the badge text */
+  [slot="icon-end"] { order: 1; }
+}
+
