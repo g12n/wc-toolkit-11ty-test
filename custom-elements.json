@@ -88,6 +88,14 @@
                 "text": "\"long\"|\"short\"|\"narrow\"|\"digital\""
               }
             }
+          ],
+          "webFeatures": [
+            {
+              "name": "intl-duration-format"
+            },
+            {
+              "name": "temporal"
+            }
           ]
         }
       ],
@@ -148,7 +156,7 @@
             },
             {
               "name": "--badge-fg-color",
-              "description": "Text and icon color.",
+              "description": "Text and icon color",
               "default": "black"
             },
             {

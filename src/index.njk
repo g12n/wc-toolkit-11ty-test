@@ -4,10 +4,10 @@ layout: main.njk
 ---
 
 <ul>
-{%- for post in collections.components -%}
+{% for post in collections.components %}
   <li>
     <a href="{{post.url}}">{{ post.data.title }}</a>
     <div>{{ post.data.description }}</div>
   </li>
-{%- endfor -%}
+{% endfor %}
 </ul>

@@ -1,0 +1,101 @@
+---
+layout: main.njk
+pagination:
+    data: components
+    size: 1
+    addAllPagesToCollections: true
+    alias: customElement
+permalink: "component/{{customElement.tagName}}/index.html"
+tags: components
+eleventyComputed:
+    title: "{{customElement.tagName}}"
+    description: "{{customElement.description}}"
+---
+
+<h1>{{title}}</h1>
+<p>{{description}}</p>
+<p>
+    <code>&lt;{{customElement.tagName}}&gt;</code>
+</p>
+
+{% for example in collections.examples %}
+    {% if example.page.fileSlug === customElement.tagName %}
+        {{ example.templateContent | safe }}
+    {%endif %}
+{% endfor %}
+
+{% if customElement.superclass %}
+    <p>superclass: {{customElement.superclass.name}}</p>
+{% endif %}
+
+{% if customElement.attributes %}
+    <h2>Attributes</h2>
+
+    <table>
+        <tr>
+            <th>Attribute Name</th>
+            <th>Default Value</th>
+            <th>description</th>
+            <th>type</th>
+        </tr>
+        {% for  attribute in customElement.attributes%}
+            <tr>
+                <td>{{attribute.name}}</td>
+                <td>{{attribute.default }}</td>
+                <td>{{attribute.description}}</td>
+                <td>{{attribute.type.text }}</td>
+            </tr>
+        {%endfor %}
+    </table>
+{% endif %}
+
+{% if customElement.cssProperties %}
+    <h2>CSS Custom Properties</h2>
+
+    <script src="https://nudeui.com/elements/html-demo/html-demo.js" type="module"></script>
+
+    <table>
+        <tr>
+            <th>Property Name</th>
+            <th>Default Value</th>
+            <th>Description</th>
+            <th>syntax</th>
+        </tr>
+        {% for  attribute in customElement.cssProperties%}
+            <tr>
+                <td>{{attribute.name}}</td>
+                <td>{{attribute.default}}</td>
+                <td>{{attribute.description}}</td>
+                <td>{{attribute.type.text}}</td>
+            </tr>
+        {%endfor %}
+    </table>
+{% endif %}
+
+<h2>Usage</h2>
+{% if customElement.superclass.name === "HTMLUnknownElement" %}
+    {% set htmlSnippet %}<link rel="stylesheet" href="/{{customElement.definitionPath}}"/>{% endset %}
+{% else %}
+    {% set htmlSnippet %}
+    <script type="module" src="/{{customElement.definitionPath}}"></script>{% endset %}
+{%endif %}
+<pre><code>{{ htmlSnippet | escape }}</code></pre>
+
+{% if customElement.webFeatures %}
+    <h2>Web Features</h2>
+    {% for  feature in customElement.webFeatures%}
+        <h3>
+            <a href="https://web-platform-dx.github.io/web-features-explorer/features/{{feature.name}}/">{{feature.name}}</a>
+        </h3>
+        <baseline-status featureId="{{feature.name}}"></baseline-status>
+    {%endfor %}
+    <script src="https://cdn.jsdelivr.net/npm/baseline-status@1/baseline-status.min.js" type="module"></script>
+{% endif %}
+
+
+<details>
+    <summary>debug compoentent code</summary>
+    <pre>{{customElement | stringify}}</pre>
+</details>
+
+{{htmlSnippet | safe}}

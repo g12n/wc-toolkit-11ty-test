@@ -1,9 +1,7 @@
-import { RenderPlugin } from "@11ty/eleventy";
-
 export default function (eleventyConfig) {
 	eleventyConfig.addWatchTarget("./**/*.css");
 	eleventyConfig.addWatchTarget("./**/*.js");
-	eleventyConfig.addPlugin(RenderPlugin);
+		
 	eleventyConfig.addFilter("stringify", (value, spaces = 0) =>
 		JSON.stringify(value, null, " "),
 	);

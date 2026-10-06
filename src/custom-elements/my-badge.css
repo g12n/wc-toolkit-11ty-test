@@ -1,6 +1,5 @@
 /**
  * An badge styled entirely with CSS.
- * @a11y badge
  */
  
 my-badge{
@@ -8,7 +7,7 @@ my-badge{
   --badge-padding: 4px;
   /** Surface color. */
   --badge-bg-color: lightgray;
-  /** Text and icon color. */
+  /** Text and icon color*/
   --badge-fg-color: black;
 
   display: inline-flex;
