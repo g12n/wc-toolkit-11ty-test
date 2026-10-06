@@ -12,10 +12,12 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^4.0.0-alpha.10",
-    "@wc-toolkit/cem-generator": "^0.1.10",
     "@wc-toolkit/cem-generator-cli": "^0.1.11",
     "@wc-toolkit/cem-utilities": "^1.6.0",
     "@wc-toolkit/module-path-resolver": "^1.0.1"
   },
-  "customElements": "custom-elements.json"
+  "customElements": "custom-elements.json",
+  "dependencies": {
+    "@wc-toolkit/cem-generator": "^0.1.11"
+  }
 }
