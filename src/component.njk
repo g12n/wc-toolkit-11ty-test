@@ -52,8 +52,6 @@ eleventyComputed:
 {% if customElement.cssProperties %}
     <h2>CSS Custom Properties</h2>
 
-    <script src="https://nudeui.com/elements/html-demo/html-demo.js" type="module"></script>
-
     <table>
         <tr>
             <th>Property Name</th>
@@ -67,6 +65,25 @@ eleventyComputed:
                 <td>{{attribute.default}}</td>
                 <td>{{attribute.description}}</td>
                 <td>{{attribute.type.text}}</td>
+            </tr>
+        {%endfor %}
+    </table>
+{% endif %}
+
+
+
+{% if customElement.slots %}
+    <h2>Slots</h2>
+
+    <table>
+        <tr>
+            <th>Slot Name</th>
+            <th>Description</th>
+        </tr>
+        {% for  slot in customElement.slots%}
+            <tr>
+                <td>{{slot.name}}</td>
+                <td>{{slot.description}}</td>
             </tr>
         {%endfor %}
     </table>

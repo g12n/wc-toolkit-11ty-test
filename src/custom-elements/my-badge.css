@@ -1,10 +1,13 @@
+
 /**
  * An badge styled entirely with CSS.
- */
+ * @webFeature text-box 
+*/
  
 my-badge{
+  --badge-radius: 0.5em;
   /** Inner spacing. */
-  --badge-padding: 4px;
+  --badge-padding: var(--badge-radius) calc(var(--badge-radius) * 1.5);
   /** Surface color. */
   --badge-bg-color: lightgray;
   /** Text and icon color*/
@@ -12,19 +15,21 @@ my-badge{
 
   display: inline-flex;
   align-items: center;
+  
   gap: 4px;
   padding: var(--badge-padding);
   background-color: var(--badge-bg-color);
   color: var(--badge-fg-color);
-  border-radius: 4px;
+  border-radius: var(--badge-radius);
   font-size: 0.875rem;
-  line-height: 1;
-
+  
+  /** Indicate destructive actions */
   &[data-variant="danger"] {
     --badge-bg-color: red;
     --badge-fg-color: white;
   }
-
+  
+  /** Indicate a successful action*/
   &[data-variant="success"] {
     --badge-bg-color: seagreen;
     --badge-fg-color: white;
@@ -36,6 +41,7 @@ my-badge{
     border: 2px solid;
     padding: 0;
   }
+
   /** Positions the end icon after the badge text */
   [slot="icon-end"] { order: 1; }
 }

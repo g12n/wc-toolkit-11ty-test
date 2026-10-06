@@ -162,7 +162,7 @@
             {
               "name": "--badge-padding",
               "description": "Inner spacing.",
-              "default": "4px"
+              "default": "var(--badge-radius) calc(var(--badge-radius) * 1.5)"
             }
           ]
         }
