@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "2.1.0",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "source": "src/custom-elements/intl-duration.js",
+      "path": "custom-elements/intl-duration.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "name": "IntDurationElement",
+          "description": "Display an ISO 8601 duration into any language",
+          "tagName": "intl-duration",
+          "members": [
+            {
+              "kind": "method",
+              "name": "attributeChangedCallback",
+              "parameters": [
+                {
+                  "name": "name",
+                  "parsedType": {
+                    "text": "any"
+                  }
+                },
+                {
+                  "name": "oldValue",
+                  "parsedType": {
+                    "text": "any"
+                  }
+                },
+                {
+                  "name": "newValue",
+                  "parsedType": {
+                    "text": "any"
+                  }
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "(name: any, oldValue: any, newValue: any) => void"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "duration",
+              "description": "ISO 8601 duration string (e.g. \"PT1H30M\", \"P2Y3M10DT2H30M15S\")",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "lang",
+              "description": "Language locale code (e.g. \"en-US\", \"fr-FR\", \"de-DE\", \"ja-JP\")",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "style",
+              "description": "Formatting style (default: \"long\")",
+              "type": {
+                "text": "\"long\"|\"short\"|\"narrow\"|\"digital\""
+              }
+            }
+          ],
+          "attr": [
+            {
+              "name": "duration",
+              "description": "ISO 8601 duration string (e.g. \"PT1H30M\", \"P2Y3M10DT2H30M15S\")",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "lang",
+              "description": "Language locale code (e.g. \"en-US\", \"fr-FR\", \"de-DE\", \"ja-JP\")",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "style",
+              "description": "Formatting style (default: \"long\")",
+              "type": {
+                "text": "\"long\"|\"short\"|\"narrow\"|\"digital\""
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "IntDurationElement",
+          "declaration": {
+            "name": "IntDurationElement",
+            "module": "custom-elements/intl-duration.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "intl-duration",
+          "declaration": {
+            "name": "IntDurationElement",
+            "module": "custom-elements/intl-duration.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "source": "src/custom-elements/my-badge.css",
+      "path": "custom-elements/my-badge.css",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "name": "my-badge",
+          "description": "An badge styled entirely with CSS.",
+          "tagName": "my-badge",
+          "superclass": {
+            "name": "HTMLUnknownElement"
+          },
+          "attributes": [
+            {
+              "name": "data-variant",
+              "type": {
+                "text": "\"danger\" | \"success\""
+              }
+            }
+          ],
+          "slots": [
+            {
+              "name": "icon-end"
+            },
+            {
+              "name": "icon-start"
+            }
+          ],
+          "cssProperties": [
+            {
+              "name": "--badge-bg-color",
+              "description": "Surface color.",
+              "default": "lightgray"
+            },
+            {
+              "name": "--badge-fg-color",
+              "description": "Text and icon color.",
+              "default": "black"
+            },
+            {
+              "name": "--badge-padding",
+              "description": "Inner spacing.",
+              "default": "4px"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "my-badge",
+          "declaration": {
+            "name": "my-badge",
+            "module": "custom-elements/my-badge.css"
+          }
+        }
+      ]
+    }
+  ]
+}

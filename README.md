@@ -8,7 +8,7 @@ This project will include the [custom attributes polyfill] by [Keith Cirkel] to 
 
 ## Tasks
 
-### Setup inclusion of the components into the code
+### Setup include the components into the code
 
 Currently the component code is only copied into the `_site` folder. Try to use the generated manifest to include the code in the html code. 
 
