@@ -74,12 +74,12 @@ eleventyComputed:
 
 <h2>Usage</h2>
 {% if customElement.superclass.name === "HTMLUnknownElement" %}
-    {% set htmlSnippet %}<link rel="stylesheet" href="/{{customElement.definitionPath}}"/>{% endset %}
+    {% set htmlSnippet %}<link rel="stylesheet" href="{{customElement.definitionPath}}"/>{% endset %}
 {% else %}
     {% set htmlSnippet %}
-    <script type="module" src="/{{customElement.definitionPath}}"></script>{% endset %}
+    <script type="module" src="{{customElement.definitionPath}}"></script>{% endset %}
 {%endif %}
-<pre><code>{{ htmlSnippet | escape }}</code></pre>
+<pre><code>{{ htmlSnippet  | htmlBaseUrl  |  escape }}</code></pre>
 
 {% if customElement.webFeatures %}
     <h2>Web Features</h2>
@@ -92,10 +92,10 @@ eleventyComputed:
     <script src="https://cdn.jsdelivr.net/npm/baseline-status@1/baseline-status.min.js" type="module"></script>
 {% endif %}
 
+{{htmlSnippet | safe}}
 
 <details>
     <summary>debug compoentent code</summary>
     <pre>{{customElement | stringify}}</pre>
 </details>
 
-{{htmlSnippet | safe}}

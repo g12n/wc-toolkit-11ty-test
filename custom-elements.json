@@ -4,7 +4,7 @@
     {
       "kind": "javascript-module",
       "source": "src/custom-elements/intl-duration.js",
-      "path": "custom-elements/intl-duration.js",
+      "path": "/custom-elements/intl-duration.js",
       "declarations": [
         {
           "kind": "class",
@@ -105,7 +105,7 @@
           "name": "IntDurationElement",
           "declaration": {
             "name": "IntDurationElement",
-            "module": "custom-elements/intl-duration.js"
+            "module": "/custom-elements/intl-duration.js"
           }
         },
         {
@@ -113,7 +113,7 @@
           "name": "intl-duration",
           "declaration": {
             "name": "IntDurationElement",
-            "module": "custom-elements/intl-duration.js"
+            "module": "/custom-elements/intl-duration.js"
           }
         }
       ]
@@ -121,7 +121,7 @@
     {
       "kind": "javascript-module",
       "source": "src/custom-elements/my-badge.css",
-      "path": "custom-elements/my-badge.css",
+      "path": "/custom-elements/my-badge.css",
       "declarations": [
         {
           "kind": "class",
@@ -173,7 +173,7 @@
           "name": "my-badge",
           "declaration": {
             "name": "my-badge",
-            "module": "custom-elements/my-badge.css"
+            "module": "/custom-elements/my-badge.css"
           }
         }
       ]

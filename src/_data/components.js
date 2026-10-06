@@ -14,7 +14,7 @@ let config = {
 export default function () {
 	const manifest = generateCem(config);
 	resolveModulePaths(manifest, {
-      modulePathTemplate: (modulePath) => modulePath.replace("src/custom-elements", "custom-elements")
+      modulePathTemplate: (modulePath) => modulePath.replace("src/custom-elements", "/custom-elements")
   });
 	return getAllComponents(manifest);
 };
