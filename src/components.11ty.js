@@ -19,21 +19,38 @@ export const data = {
 export async function render(data) {
 	const renderedItems = await Promise.all(
 		data.pagination.items.map(async (component) => {
-			const markdownContent = getComponentDetailsTemplate(component);
-			const renderedHtml = await this.renderTemplate(markdownContent, "md");
+			let markdownContent = getComponentDetailsTemplate(component);
+			
+			const examples = data.collections['examples'];
+			
+			let examplesCode = examples.map(example=>{
+				if(example.page.fileSlug === component.tagName){
+				markdownContent += "\n\n" + example.page.rawInput 
+				}
+			})
 
 			let usage = "";
 			if (component.definitionPath.endsWith(".css")) {
-				usage = `&lt;link rel="stylesheet" src="/${component.definitionPath}"&gt;&lt;link/&gt`;
+				usage = `<link rel="stylesheet" href="/${component.definitionPath}"></link>`;
 			} else {
-				usage = `&lt;script type="module" src="/${component.definitionPath}"&gt;&lt;script/&gt`;
+				usage = `<script type="module" src="/${component.definitionPath}"></script>`;
 			}
+
+			markdownContent +=`
+## Usage
+\`\`\`html 
+${usage}"
+\`\`\`
+`
+			const renderedHtml = await this.renderTemplate("\n\n"+markdownContent, "md");
+
+
 			return `
+
         <h1>${component.name}</h1>
         <p><code>&lt;${component.tagName}&gt;</code></p>
         ${renderedHtml}
-        <h2>Usage</h2>
-        <pre>${usage}</pre>
+        ${usage}
       `;
 		}),
 	);

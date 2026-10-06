@@ -2,6 +2,7 @@
  * An badge styled entirely with CSS.
  * @a11y badge
  */
+ 
 my-badge{
   /** Inner spacing. */
   --badge-padding: 4px;

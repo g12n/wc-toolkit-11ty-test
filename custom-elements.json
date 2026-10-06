@@ -45,6 +45,13 @@
           ],
           "attributes": [
             {
+              "name": "date-style",
+              "description": "Formatting style (default: \"long\")",
+              "type": {
+                "text": "\"long\"|\"short\"|\"narrow\"|\"digital\""
+              }
+            },
+            {
               "name": "duration",
               "description": "ISO 8601 duration string (e.g. \"PT1H30M\", \"P2Y3M10DT2H30M15S\")",
               "type": {
@@ -56,13 +63,6 @@
               "description": "Language locale code (e.g. \"en-US\", \"fr-FR\", \"de-DE\", \"ja-JP\")",
               "type": {
                 "text": "string"
-              }
-            },
-            {
-              "name": "style",
-              "description": "Formatting style (default: \"long\")",
-              "type": {
-                "text": "\"long\"|\"short\"|\"narrow\"|\"digital\""
               }
             }
           ],
@@ -82,7 +82,7 @@
               }
             },
             {
-              "name": "style",
+              "name": "date-style",
               "description": "Formatting style (default: \"long\")",
               "type": {
                 "text": "\"long\"|\"short\"|\"narrow\"|\"digital\""
