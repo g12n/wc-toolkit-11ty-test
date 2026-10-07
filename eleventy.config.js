@@ -9,6 +9,9 @@ export default function (eleventyConfig) {
 	);
 
 	eleventyConfig.addPassthroughCopy("src/custom-elements");
+	eleventyConfig.addPassthroughCopy("src/client_modules");
+	eleventyConfig.addPassthroughCopy("src/importmap.js");
+
 	eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
 	eleventyConfig.setServerOptions({

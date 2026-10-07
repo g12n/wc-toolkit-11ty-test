@@ -1,21 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}} </title>
-    <style>
-        :root{
-            --content-width: 78ch;
-            --body-padding: max(1rem, calc((100vw - var(--content-width)) /2 ))
-        }
-        body{
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{title}}
+        </title>
+        <style>
+            :root {
+                --content-width: 78ch;
+                --body-padding: max(1rem, calc((100vw - var(--content-width)) /2));
 
-            padding-inline: var( --body-padding);
-        }
-    </style>
-</head>
-<body>
-   {{ content | safe }}
-</body>
+                --syntax-background: light-dark(#fdf6e3, #0d1117);
+                --syntax-foreground: light-dark(#24292f, #c9d1d9);
+                --syntax-comment: light-dark(#6e7781, #8b949e);
+                --syntax-keyword: light-dark(#cf222e, #ff7b72);
+                --syntax-operator: light-dark(#24292f, #c9d1d9);
+                --syntax-string: light-dark(#0a3069, #a5d6ff);
+                --syntax-constant: light-dark(#0550ae, #79c0ff);
+                --syntax-function: light-dark(#8250df, #d2a8ff);
+                --syntax-type: light-dark(#8250df, #d2a8ff);
+                --syntax-variable: light-dark(#953800, #ffa657);
+                --syntax-property: light-dark(#0550ae, #79c0ff);
+                --syntax-tag: light-dark(#116329, #7ee787);
+                --syntax-selector: light-dark(#8250df, #d2a8ff);
+                --syntax-inserted: light-dark(#116329, #7ee787);
+                --syntax-deleted: light-dark(#cf222e, #ff7b72);
+            }
+
+            pre:has(code) {
+                background-color: var(--syntax-background);
+                color: var(--syntax-foreground);
+                border-radius: 0.4em;
+                padding: 1em;
+                overflow-x: auto;
+                 scrollbar-color:  var(--syntax-foreground) var(--syntax-background);
+                scrollbar-width: thin;
+             scrollbar-gutter: stable;
+
+            }
+            ::highlight(comment),
+            ::highlight(quote) {
+                color: var(--syntax-comment);
+            }
+            ::highlight(at-rule),
+            ::highlight(doctype),
+            ::highlight(important),
+            ::highlight(keyword),
+            ::highlight(section),
+            ::highlight(storage) {
+                color: var(--syntax-keyword);
+            }
+            ::highlight(operator),
+            ::highlight(punctuation) {
+                color: var(--syntax-operator);
+            }
+            ::highlight(attribute-value),
+            ::highlight(link),
+            ::highlight(raw),
+            ::highlight(regexp),
+            ::highlight(string) {
+                color: var(--syntax-string);
+            }
+            ::highlight(anchor),
+            ::highlight(boolean),
+            ::highlight(character-entity),
+            ::highlight(constant),
+            ::highlight(entity),
+            ::highlight(numeric),
+            ::highlight(symbol) {
+                color: var(--syntax-constant);
+            }
+            ::highlight(animation),
+            ::highlight(decorator),
+            ::highlight(function) {
+                color: var(--syntax-function);
+            }
+            ::highlight(support),
+            ::highlight(type) {
+                color: var(--syntax-type);
+            }
+            ::highlight(interpolation),
+            ::highlight(variable) {
+                color: var(--syntax-variable);
+            }
+            ::highlight(attribute-name),
+            ::highlight(key),
+            ::highlight(property) {
+                color: var(--syntax-property);
+            }
+            ::highlight(tag) {
+                color: var(--syntax-tag);
+            }
+            ::highlight(selector) {
+                color: var(--syntax-selector);
+            }
+            ::highlight(inserted) {
+                color: var(--syntax-inserted);
+            }
+            ::highlight(deleted) {
+                color: var(--syntax-deleted);
+            }
+            body {
+
+                padding-inline: var(--body-padding);
+            }
+            pre {
+                padding: 0.5em;
+            }
+        </style>
+        <script src="/importmap.js"></script>
+    </head>
+    <body>
+        {{ content | safe }}
+        <script type="module">
+            import {highlightAll} from "microlighter";
+            await highlightAll();
+        </script>
+    </body>
 </html>

@@ -93,10 +93,9 @@ eleventyComputed:
 {% if customElement.superclass.name === "HTMLUnknownElement" %}
     {% set htmlSnippet %}<link rel="stylesheet" href="{{customElement.definitionPath}}"/>{% endset %}
 {% else %}
-    {% set htmlSnippet %}
-    <script type="module" src="{{customElement.definitionPath}}"></script>{% endset %}
+    {% set htmlSnippet %}<script type="module" src="{{customElement.definitionPath}}"></script>{% endset %}
 {%endif %}
-<pre><code>{{ htmlSnippet  | htmlBaseUrl  |  escape }}</code></pre>
+<pre><code class="language-html">{{ htmlSnippet  | htmlBaseUrl  |  escape }}</code></pre>
 
 {% if customElement.webFeatures %}
     <h2>Web Features</h2>
@@ -113,6 +112,6 @@ eleventyComputed:
 
 <details>
     <summary>debug compoentent code</summary>
-    <pre>{{customElement | stringify}}</pre>
+ <pre><code class="language-json">{{customElement | stringify}}</code></pre>    
 </details>
 
